@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# If we are launching from a symlink, such as /usr/local/bin/Ankh, we need to get where
+# the symlink points to
+pth="`readlink $0`"
+
+# $pth will be empty if our start path wasnt a symlink
+if [ $pth ]; then
+	gamedir="`dirname $pth`"
+else
+	gamedir="`dirname $0`"
+fi
+
+# Change to the game dir, and go!
+cd $gamedir/bin/release
+LD_LIBRARY_PATH=./libs LC_NUMERIC=C ./ankh

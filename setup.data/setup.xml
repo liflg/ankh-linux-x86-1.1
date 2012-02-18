@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<install version="1.1" product="Ankh" desc="Ankh v1.1 Update"
+	category="Application;Game;AdventureGame;"
+	nowarnifdirexists="~/.loki/installed/Ankh.xml"
+	uninstall="uninstall.sh"
+	express="no"
+	superuser="no"
+	preinstall="sh setup.data/preinstall.sh $*"
+	postinstall="sh setup.data/postinstall.sh $*"
+	once="no"
+	reinstall="yes"
+	promptbinaries="no"
+	reinstallfast="yes"
+	reinstallnowarning="yes"
+	nomenuitems="yes"
+	nopromptoverwrite="yes"
+>
+	<require condition="reinstalling">
+		You can use this package only to update an EXISTING Ankh installation!
+	</require>
+
+	<option install="true" required="true">
+		Ankh v1.1 upgrade
+		<lang lang="fr">Installation de base</lang>
+		<lang lang="de">Minimale Installation</lang>
+		<lang lang="it">Aggiornamento ad Ankh 1.1</lang>
+
+		<help>Required for play</help>
+		<help lang="fr">Requise pour jouer</help>
+		<help lang="de">Zum Spielen benötigt</help>
+		<help lang="it">Necessario per giocare</help>
+
+		<install_drop_list>
+			/usr/local/games
+			~
+		</install_drop_list>
+
+		<binary libc="any"
+			binpath="data/"
+			symlink="Ankh"
+			icon="Ankh.xpm"
+			menu="Game"
+			name="Ankh"
+		>
+			Ankh.tar.gz
+		</binary>
+		<files srcpath="data/">
+			bin-x86.tar.gz
+			libs-x86.tar.gz
+			common.tar.gz
+	</files>
+	</option>
+</install>
